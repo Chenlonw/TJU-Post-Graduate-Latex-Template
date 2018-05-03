@@ -434,7 +434,7 @@ if$
 Function{upcase}
 { duplicate$ empty$
 { pop$ "" }
-{ "u" change.case$ }
+{ "d" change.case$ }
 if$
 }
 FUNCTION {bib.name.font}
@@ -3166,18 +3166,18 @@ if$
 
 
 
-
+%%%%%%%% 文中格式 %%%%%%%%
 FUNCTION {format.lab.names}                                      %wk
 { 's :=
 s #1 "{vv~}{ll}" format.name$
 s num.names$ duplicate$
 #2 >
-{ pop$ " et al." * }
+{ pop$ " 等" * }
 { #2 <
 'skip$
 { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
 { " {\em et~al.}" * }
-{ " and " * s #2 "{vv~}{ll}" format.name$ * }           %wk
+{ " 和 " * s #2 "{vv~}{ll}" format.name$ * }           %wk
 if$
 }
 if$

@@ -271,7 +271,7 @@
 \newcommand\projectsource[1]{\def\tju@value@projectsource{#1}}
 \renewcommand\author[1]{\def\tju@value@author{#1}}
 \newcommand\advisor[1]{\def\tju@value@advisor{#1}}
-\newcommand\viceadvisor[1]{\def\tju@value@viceadvisor{#1}}
+%\newcommand\viceadvisor[1]{\def\tju@value@viceadvisor{#1}}
 \newcommand\advisorinstitute[1]{\def\tju@value@advisorinstitute{#1}}
 \newcommand\major[1]{\def\tju@value@major{#1}}
 \newcommand\submitdate[1]{\def\tju@value@submitdate{#1}}
@@ -322,7 +322,7 @@
     \\   
       \fangsong\tju@label@advisor&：~&\fangsong \tju@value@advisor
     \\  
-      \fangsong\tju@label@viceadvisor&：~&\fangsong \tju@value@viceadvisor
+%      \fangsong\tju@label@viceadvisor&：~&\fangsong \tju@value@viceadvisor
     \end{tabular}
 	}
      \vskip \stretch{1} 
@@ -342,7 +342,7 @@
 \newcommand\englishtitle[1]{\def\tju@value@englishtitle{#1}}
 \newcommand\englishauthor[1]{\def\tju@value@englishauthor{#1}}
 \newcommand\englishadvisor[1]{\def\tju@value@englishadvisor{#1}}
-\newcommand\englishviceadvisor[1]{\def\tju@value@englishviceadvisor{#1}}
+%\newcommand\englishviceadvisor[1]{\def\tju@value@englishviceadvisor{#1}}
 \newcommand\englishschool[1]{\def\tju@value@englishschool{#1}}
 \newcommand\englishinstitute[1]{\def\tju@value@englishinstitute{#1}}
 \newcommand\englishdate[1]{\def\tju@value@englishdate{#1}}
@@ -393,7 +393,7 @@
 
 \hspace{-6pt}\begin{tabular}{ll}
 		\tju@label@englishadvisor ：&\tju@value@englishadvisor \\ 
-  &\tju@value@englishviceadvisor \\  
+%  &\tju@value@englishviceadvisor \\  
 \end{tabular} \\
   
 		
@@ -571,13 +571,9 @@
        {\@latex@warning{Empty `thebibliography' environment}}%
 	      \endlist}
 
-    
-    
-    \newenvironment{publications}[1]
-    {\chapter{\tju@label@publications}%
-    	\@mkboth{\MakeUppercase\tju@label@publications}
-    	{\MakeUppercase\tju@label@publications}%
-    	{\backsection{已发表论文}}
+    \newenvironment{conference}[1]
+	{
+		{\vspace{1em}\backsection{发表会议论文}}
     	\list{\@biblabel{\@arabic\c@enumiv}}%
     	{\settowidth\labelwidth{\@biblabel{#1}}%
     		\leftmargin\labelwidth
@@ -596,6 +592,25 @@
     	\endlist
     	{\backsection{\hspace{-2em}个人简历}}
     	\hspace{-2em}\tju@value@resume}
+
+    \newenvironment{publications}[1]
+    {\chapter{\tju@label@publications}%
+    	\@mkboth{\MakeUppercase\tju@label@publications}
+    	{\MakeUppercase\tju@label@publications}%
+    	{\backsection{发表论文}}
+    	\list{\@biblabel{\@arabic\c@enumiv}}%
+    	{\settowidth\labelwidth{\@biblabel{#1}}%
+    		\leftmargin\labelwidth
+    		\advance\leftmargin\labelsep
+    		\@openbib@code
+    		\usecounter{enumiv}%
+    		\let\p@enumiv\@empty
+    		\renewcommand\theenumiv{\@arabic\c@enumiv}}%
+    	\sloppy
+    	\clubpenalty4000
+    	\@clubpenalty \clubpenalty
+    	\widowpenalty4000%
+    	\sfcode`\.\@m}
     
     
 
